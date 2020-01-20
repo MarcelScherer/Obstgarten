@@ -14,6 +14,7 @@ class Dice:
     """
 
     def __init__(self):
+        " init elements for dict statistic "
         self.red = 0
         self.green = 0
         self.blue = 0
@@ -21,7 +22,9 @@ class Dice:
         self.raven = 0
         self.basket = 0
 
+
     def roll_the_dice(self) -> str:
+        " returns the dicted value and increment value for statistic"
         augen = random.randint(1, 6)
 
         if augen == 1:
@@ -44,6 +47,7 @@ class Dice:
             return "basket"
 
     def get_statistic(self) -> None:
+        " print dict statistic "
         sum_of_dice = self.red + self.green + self.blue + self.yellow + self.raven + self.basket
         print(str(self.red / sum_of_dice * 100.0) + "% red apple")
         print(str(self.green / sum_of_dice * 100.0) + "% green apple")
@@ -63,6 +67,7 @@ class ObstgartenGame:
         self.black_raven = 5
 
     def reset(self):
+        " reset game 'Obstgarten'"
         self.red_fruit = 4
         self.green_fruit = 4
         self.yellow_fruit = 4
@@ -70,6 +75,7 @@ class ObstgartenGame:
         self.black_raven = 5
 
     def play(self, dice=str):
+        "play one time"
         if dice == 'red' and self.red_fruit > 0:
             self.red_fruit -= 1
         elif dice == 'green' and self.green_fruit > 0:
@@ -91,6 +97,7 @@ class ObstgartenGame:
                 self.blue_fruit -= 1
 
     def get_scor(self) -> None:
+        "get actual game score"
         print("red apple:   " + str(self.red_fruit))
         print("green apple: " + str(self.green_fruit))
         print("yellow pear:  " + str(self.yellow_fruit))
@@ -98,6 +105,7 @@ class ObstgartenGame:
         print("black raven: " + str(self.black_raven))
 
     def get_status(self) -> str:
+        "get game status"
         if self.red_fruit == 0 and self.green_fruit == 0 and self.yellow_fruit == 0 and self.blue_fruit == 0:
             return "win"
         elif self.black_raven == 0:
